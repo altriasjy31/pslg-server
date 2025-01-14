@@ -1,0 +1,35 @@
+base: configs/training_msa-v1/metafile.yml
+task: molecular_function
+num_classes: 7038
+netD: timm_tresnet_m
+use_ipr_head: true
+protein_interpros: ./data/protein_interpros.pkl
+no_ipr_input: false
+head_type: encoder
+
+enc_embed_dims: 256
+enc_groups: 8
+enc_depth: 6
+
+# encoder
+enc_pre_norm: false
+enc_num_heads: 8
+enc_ff_mult: 4
+enc_ff_glu: true
+enc_ff_glu_mult_bias: false
+enc_ff_swish: true
+
+# # GAU Encoder
+# enc_use_gau: true
+# enc_gau_qk_dim: 128
+# enc_gau_mult: 2
+# enc_gau_laplace_attn_fn: false
+
+optim: AMSGrad
+epochs: 10
+stop_epoch: 10
+lr: 0.0001
+batch_size: 32
+for_retrain: ./data/training/trained_model/msa-v1-7-26/mfo/ema-fmax-highest.pth
+full_fine_tuning: true
+wandb: transformer-v3

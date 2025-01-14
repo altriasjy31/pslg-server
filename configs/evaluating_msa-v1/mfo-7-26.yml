@@ -1,0 +1,8 @@
+base: configs/evaluating_msa-v1/metafile.yml
+task: molecular_function
+num_classes: 7038
+top_k: 40
+netD: timm_tresnet_m
+trained_model: ema-fmax-highest.pth
+no_eval: false
+prediction_save: ./data/target/pred_seqs/msa-v1-7-26/mfo/ema-fmax-highest.npy

@@ -1,0 +1,30 @@
+base: configs/evaluating_msa-v1/metafile.yml
+task: biological_process
+num_classes: 21312
+netD: timm_tresnet_m
+use_ipr_head: true
+protein_interpros: ./data/protein_interpros.pkl
+no_ipr_input: false
+head_type: encoder
+
+enc_embed_dims: 256
+enc_groups: 8
+enc_depth: 6
+
+# encoder
+enc_pre_norm: false
+enc_num_heads: 8
+enc_ff_mult: 4
+enc_ff_glu: true
+enc_ff_glu_mult_bias: false
+enc_ff_swish: true
+
+# # GAU Encoder
+# enc_use_gau: true
+# enc_gau_qk_dim: 128
+# enc_gau_mult: 2
+# enc_gau_laplace_attn_fn: false
+
+trained_model: ema-fmax-highest.pth
+no_eval: false
+prediction_save: ./data/target/pred_seqs/msa-v1-8-24/bpo/ema-fmax-highest.npy
