@@ -179,6 +179,6 @@ The script operates in several modes based on the `--mode` argument:
 
 ## License
 
-This project is distributed under the MIT License. See `LICENSE.md` for more details.
+This project is distributed under the Apache2 License. See `LICENSE.md` for more details.
 
 ---
